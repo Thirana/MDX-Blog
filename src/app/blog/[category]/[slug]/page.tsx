@@ -3,6 +3,7 @@ import { formatDate, getBlogPosts } from "../../utils";
 import Header from "@/components/Header";
 import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
+import { CustomMDX } from "@/components/mdx";
 
 export default function Page({ params }: { category: string; slug: string }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
@@ -29,6 +30,11 @@ export default function Page({ params }: { category: string; slug: string }) {
           </div>
         </Container>
       </Header>
+      <Container>
+        <article className="prose">
+          <CustomMDX source={post.content} />
+        </article>
+      </Container>
     </>
   );
 }
