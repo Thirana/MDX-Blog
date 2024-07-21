@@ -5,7 +5,20 @@ import Container from "@/components/Container";
 import { BreadcrumbWithCustomSeparator } from "@/components/Breadcrumb";
 import { CustomMDX } from "@/components/mdx";
 
-export default function Page({ params }: { category: string; slug: string }) {
+// function for static site generation (SSG)
+export async function generateStaticParams() {
+  let posts = getBlogPosts();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export default function Page({
+  params,
+}: {
+  params: { category: string; slug: string };
+}) {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
