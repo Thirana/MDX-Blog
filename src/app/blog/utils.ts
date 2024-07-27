@@ -29,8 +29,22 @@ function getMDXData(dir: string) {
   });
 }
 
+// getting MDX data from specific path
+// we can use this method to get MDX content from specific path
 export function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), "src", "app", "blog", "contents"));
+}
+
+// get MDX data for terms and services
+export function getTermsOfServices() {
+  return getMDXData(
+    path.join(process.cwd(), "src", "app", "terms-of-services")
+  );
+}
+
+// get MDX data for Privacy Policy
+export function getPrivacyPolicy() {
+  return getMDXData(path.join(process.cwd(), "src", "app", "privacy-policy"));
 }
 
 // function to format the date
