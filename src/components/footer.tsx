@@ -129,12 +129,14 @@ export default function Footer() {
               >
                 {state?.errors?.email &&
                   state.errors.email.map((error: string) => (
-                    <p key={error} className="text-xs text-red-500">
+                    <p key={error} className="text-xs text-red-500 mt-2">
                       {error}
                     </p>
                   ))}
                 {!state?.errors?.email && (
-                  <p className="text-xs text-green-500">{state?.message}</p>
+                  <p className="text-xs text-green-500 mt-2">
+                    {state?.message}
+                  </p>
                 )}
               </div>
             </form>

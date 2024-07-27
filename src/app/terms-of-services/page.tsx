@@ -4,6 +4,11 @@ import { MainNav } from "@/components/main-nav";
 import { CustomMDX } from "@/components/mdx";
 import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Terms of Services",
+  description: "This page explains the terms of services",
+};
+
 export default function Page() {
   let post = getTermsOfServices().find(
     (post) => post.slug === "terms-of-services"
